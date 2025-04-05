@@ -7,7 +7,6 @@
   <style>
     body {
       margin: 0;
-      padding: 0;
       background: #0e0e0e;
       color: #e0e0e0;
       font-family: 'Courier New', monospace;
@@ -16,32 +15,36 @@
       align-items: center;
       justify-content: center;
       height: 100vh;
-      overflow: hidden;
       text-align: center;
     }
 
     .glyph-link {
       position: absolute;
-      top: 0.8rem;
-      left: 1rem;
+      top: 1.2rem;
+      left: 1.2rem;
       font-size: 1.2rem;
-      color: #73defe;
+      color: #444;
       text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .glyph-link:hover {
+      color: #73defe;
     }
 
     h1 {
-      font-size: 2.2rem;
-      margin: 0.5rem 0 0.25rem 0;
+      font-size: 2rem;
+      margin: 0.4rem;
     }
 
     p.subtitle {
-      font-size: 1.1rem;
-      color: #aaa;
-      margin-bottom: 1.5rem;
+      font-size: 1rem;
+      color: #888;
+      margin-bottom: 2rem;
     }
 
     .links a {
-      margin: 0 0.8rem;
+      margin: 0 1rem;
       color: #73defe;
       text-decoration: none;
       font-size: 1rem;
@@ -49,12 +52,12 @@
 
     .links {
       margin-top: auto;
-      padding-bottom: 1.5rem;
+      padding-bottom: 2rem;
     }
 
     @media (max-width: 600px) {
       h1 {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
       }
 
       .links a {
@@ -63,6 +66,8 @@
 
       .glyph-link {
         font-size: 1rem;
+        top: 0.8rem;
+        left: 1rem;
       }
     }
   </style>
