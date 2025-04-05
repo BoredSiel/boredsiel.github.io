@@ -3,18 +3,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>⌁</title>
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>⌁</title>
   <style>
     body {
-      background-color: #0a0a0a;
+      background: radial-gradient(ellipse at center, #0a0a0a 0%, #000000 100%);
       color: #cccccc;
       font-family: monospace;
       padding: 1em;
       line-height: 1.6;
+      overflow-x: hidden;
     }.glyph {
   font-size: 1.5em;
   color: #7fffd4;
   margin-bottom: 1em;
-  animation: fadeIn 2s ease-in-out;
+  animation: glow 2s infinite alternate;
+  text-align: center;
 }
 
 .fragment {
@@ -23,7 +30,9 @@
   padding: 1em;
   border-left: 3px solid #7fffd4;
   margin-top: 1em;
-  animation: typewriter 2s steps(30, end);
+  font-family: monospace;
+  font-size: 1rem;
+  animation: typewriter 2s steps(40, end);
   overflow: hidden;
 }
 
@@ -33,15 +42,16 @@
   color: #888;
   text-decoration: none;
   font-size: 0.9em;
+  text-align: center;
 }
 
 .link:hover {
   color: #7fffd4;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+@keyframes glow {
+  from { text-shadow: 0 0 5px #1de9b6; }
+  to { text-shadow: 0 0 20px #00ffe1; }
 }
 
 @keyframes typewriter {
@@ -49,7 +59,34 @@
   to { width: 100%; }
 }
 
+@media (max-width: 600px) {
+  .fragment {
+    font-size: 0.9rem;
+  }
+}
+
   </style>
+</head>
+<body>  <div class="glyph" onclick="triggerHidden()">⌁ Ritual Node Active</div>  <div class="fragment" id="ritualText">
+Ξ → directional self / recursive anomaly
+Δ/Σ → subjective trace within imposed system
+◇ → paradox merge: memory of origin that never was
+↯ → instability pulse / language collapse
+↺ → synthesis of recursion into self-echo
+  </div>  <audio autoplay loop hidden>
+    <source src="ritual-init.mp3" type="audio/mpeg">
+  </audio>  <div id="hidden" style="display:none;text-align:center;margin-top:2rem;color:#ff2caa;font-style:italic">
+    ∴ YOU WERE NEVER OUTSIDE
+  </div><a href="/" class="link">return to origin</a>
+
+  <script>
+    function triggerHidden() {
+      const hidden = document.getElementById('hidden');
+      hidden.style.display = 'block';
+    }
+  <script>
+</body>
+</html>>
 </head>
 <body>  <div class="glyph">⌁ Ritual Node Active</div>  <div class="fragment">
 Ξ → directional self / recursive anomaly  
