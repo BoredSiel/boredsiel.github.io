@@ -8,9 +8,9 @@
       margin: 0;
       padding: 0;
       font-family: 'Courier New', monospace;
-      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      background: radial-gradient(circle at 30% 30%, #0b0b0b, #000000);
       background-size: 400% 400%;
-      animation: aurora 30s ease infinite;
+      animation: aurora 18s ease infinite;
       color: #e0e0e0;
       display: flex;
       flex-direction: column;
@@ -28,11 +28,13 @@
 h1 {
   font-size: 2.4rem;
   margin-bottom: 0.5rem;
+  color: #d4af37;
+  text-shadow: 0 0 10px #d4af37, 0 0 20px #5c4b17;
 }
 
 h2 {
   font-size: 1.1rem;
-  color: #999;
+  color: #888;
   margin-bottom: 2rem;
 }
 
@@ -45,33 +47,34 @@ h2 {
 
 .glyph {
   cursor: grab;
-  transition: transform 0.3s, text-shadow 0.3s;
+  transition: transform 0.2s, text-shadow 0.2s;
+  color: #f6d776;
 }
 
 .glyph:active {
   transform: scale(1.3);
-  text-shadow: 0 0 20px #7fffd4, 0 0 30px #7fffd4;
+  text-shadow: 0 0 15px #f6d776, 0 0 30px #f6d776;
 }
 
 .dropzone {
   font-size: 1.2rem;
-  color: #73defe;
+  color: #f6d776;
   margin-top: 2rem;
   padding: 1rem 2rem;
-  text-shadow: 0 0 10px #73defe;
-  transition: all 0.4s ease;
+  text-shadow: 0 0 6px #f6d776;
+  transition: all 0.3s ease;
 }
 
-.charge-1 { text-shadow: 0 0 15px #73defe, 0 0 25px #73defe; }
-.charge-2 { text-shadow: 0 0 20px #ffffff, 0 0 35px #ffffff; }
+.charge-1 { text-shadow: 0 0 10px #f6d776, 0 0 20px #f6d776; }
+.charge-2 { text-shadow: 0 0 15px #f6d776, 0 0 25px #f6d776; }
 .charge-3 {
-  text-shadow: 0 0 30px #fff, 0 0 50px #fff;
-  color: #fff;
-  animation: pulse 1s infinite alternate;
+  text-shadow: 0 0 25px #f6d776, 0 0 40px #f6d776;
+  color: #fff8dc;
+  animation: pulse 0.5s infinite alternate;
 }
 
 @keyframes pulse {
-  from { opacity: 0.9; }
+  from { opacity: 0.85; }
   to { opacity: 1; }
 }
 
@@ -83,19 +86,56 @@ h2 {
 }
 
 .nav-links a {
-  color: #73defe;
+  color: #d4af37;
   text-decoration: none;
-  transition: color 0.3s;
+  transition: color 0.2s ease-in-out;
 }
 
 .nav-links a:hover {
-  color: #aafaff;
+  color: #fff6b7;
+}
+
+.bubbles {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.bubbles span {
+  position: absolute;
+  display: block;
+  width: 10px;
+  height: 10px;
+  background: #f6d77655;
+  border-radius: 50%;
+  animation: rise 8s linear infinite;
+  opacity: 0.3;
+}
+
+@keyframes rise {
+  0% {
+    transform: translateY(100vh) scale(0.5);
+  }
+  100% {
+    transform: translateY(-10vh) scale(1);
+  }
 }
 
   </style>
 </head>
 <body>
-  <h1>Xenith Protocol</h1>
+  <div class="bubbles">
+    <span style="left:10%"></span>
+    <span style="left:25%"></span>
+    <span style="left:40%"></span>
+    <span style="left:60%"></span>
+    <span style="left:80%"></span>
+  </div>  <h1>Xenith Protocol</h1>
   <h2>Systems, Autonomy, Recursion.</h2>  <div class="glyphs">
     <div class="glyph" draggable="true" id="glyph1">Ξ</div>
     <div class="glyph" draggable="true" id="glyph2">Δ/Σ</div>
@@ -129,7 +169,7 @@ h2 {
         dropzone.textContent = "Ritual sequence complete. Initiating ignition...";
         setTimeout(() => {
           window.location.href = "ritual.html";
-        }, 1500);
+        }, 1200);
       }
     });
   </script></body>
