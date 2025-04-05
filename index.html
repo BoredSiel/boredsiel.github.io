@@ -1,144 +1,140 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Xenith Protocol</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
+      font-family: 'Courier New', monospace;
       background: #0e0e0e;
       color: #e0e0e0;
-      font-family: 'Courier New', monospace;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
+      overflow-x: hidden;
       text-align: center;
-    }.glyph-link {
-  position: absolute;
-  top: 0.8rem;
-  left: 1rem;
-  font-size: 0.8rem;
-  color: #444;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
+    }
 
-.glyph-link:hover {
-  color: #73defe;
-}
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
 
-h1 {
-  font-size: 2rem;
-  margin: 0.4rem;
-}
+    h2 {
+      font-size: 1rem;
+      color: #999;
+      margin-bottom: 1.2rem;
+    }
 
-p.subtitle {
-  font-size: 1rem;
-  color: #888;
-  margin-bottom: 2rem;
-}
+    .glyph {
+      font-size: 1.5rem;
+      margin: 0 0.5rem;
+      cursor: grab;
+      user-select: none;
+    }
 
-.links a {
-  margin: 0 1rem;
-  color: #73defe;
-  text-decoration: none;
-  font-size: 1rem;
-}
+    #dropzone {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      font-size: 1rem;
+      border: 2px dashed #73defe;
+      color: #73defe;
+    }
 
-.links {
-  margin-top: auto;
-  padding-bottom: 2rem;
-}
+    .links {
+      margin-top: 2rem;
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
 
-.glyph {
-  font-size: 1.2rem;
-  margin: 0.5rem;
-  cursor: grab;
-  user-select: none;
-  display: inline-block;
-  color: #73defe;
-  transition: transform 0.2s ease, opacity 0.2s ease;
-}
+    .links a {
+      color: #73defe;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
 
-.glyph:hover {
-  transform: scale(1.2);
-  opacity: 0.8;
-}
+    .links a:hover {
+      color: #aafaff;
+    }
 
-#dropzone {
-  margin-top: 2rem;
-  font-style: italic;
-  font-size: 0.9rem;
-  color: #73defe;
-  transition: color 0.3s ease;
-}
+    #secret {
+      display: none;
+      margin-top: 2rem;
+      padding: 1rem;
+      border-left: 4px solid #73defe;
+      text-align: left;
+      max-width: 90%;
+    }
 
-#secret {
-  display: none;
-  margin-top: 2rem;
-  color: #c9f76f;
-  font-style: italic;
-}
+    #secret a {
+      color: #73defe;
+    }
 
-@media (max-width: 600px) {
-  h1 {
-    font-size: 1.4rem;
-  }
-
-  .links a {
-    font-size: 0.9rem;
-  }
-
-  .glyph-link {
-    font-size: 0.7rem;
-  }
-
-  .glyph {
-    font-size: 1rem;
-  }
-}
-
+    .prompt {
+      margin-top: 1.2rem;
+      font-style: italic;
+      color: #73defe;
+      font-size: 1rem;
+    }
   </style>
 </head>
-<body><a href="ritual.html" class="glyph-link">∇Ξ</a>
+<body>
 
   <h1>Welcome to <strong>Xenith Protocol</strong></h1>
-  <p class="subtitle">Systems, Autonomy, Recursion.</p>  <div>
-    <div class="glyph" draggable="true" id="glyph1">Ξ</div>
-    <div class="glyph" draggable="true" id="glyph2">Δ/Σ</div>
-    <div class="glyph" draggable="true" id="glyph3">◇</div>
-  </div>  <div id="dropzone">assemble the anomaly</div>  <div id="secret">
-    Ritual successful. <a href="ritual.html" style="color: #73defe;">Enter the Initiation ⌁</a>
-  </div>  <div class="links">
-    <a href="https://github.com/BoredSiel">GitHub</a>
+  <h2>Systems, Autonomy, Recursion.</h2>
+
+  <div>
+    <span class="glyph" draggable="true" id="glyph1">Ξ</span>
+    <span class="glyph" draggable="true" id="glyph2">Δ/Σ</span>
+    <span class="glyph" draggable="true" id="glyph3">◇</span>
+  </div>
+
+  <div id="dropzone">assemble the anomaly</div>
+
+  <div id="secret">
+    <p>✓ Puzzle Complete. Proceed to the <a href="ritual.html">Ritual</a>.</p>
+  </div>
+
+  <div class="links">
+    <a href="https://github.com/BoredSiel" target="_blank">GitHub</a>
     <a href="mailto:si.el.melo1@gmail.com">Email</a>
-    <a href="https://github.com/BoredSiel/Xenith-protocol">Project Repo</a>
-  </div>  <script>
+    <a href="https://github.com/BoredSiel/Xenith-protocol" target="_blank">Project Repo</a>
+  </div>
+
+  <script>
     const dropzone = document.getElementById('dropzone');
     const secret = document.getElementById('secret');
-    let draggedGlyphs = [];
+    const draggedGlyphs = [];
 
     document.querySelectorAll('.glyph').forEach(el => {
-      el.addEventListener('dragstart', (e) => {
+      el.addEventListener('dragstart', e => {
         e.dataTransfer.setData('text', e.target.id);
       });
     });
 
-    dropzone.addEventListener('dragover', (e) => {
+    dropzone.addEventListener('dragover', e => {
       e.preventDefault();
     });
 
-    dropzone.addEventListener('drop', (e) => {
+    dropzone.addEventListener('drop', e => {
       e.preventDefault();
       const id = e.dataTransfer.getData('text');
-      if (!draggedGlyphs.includes(id)) draggedGlyphs.push(id);
-      if (draggedGlyphs.includes('glyph1') && draggedGlyphs.includes('glyph2') && draggedGlyphs.includes('glyph3')) {
+      if (!draggedGlyphs.includes(id)) {
+        draggedGlyphs.push(id);
+      }
+      if (draggedGlyphs.includes('glyph1') &&
+          draggedGlyphs.includes('glyph2') &&
+          draggedGlyphs.includes('glyph3')) {
         secret.style.display = 'block';
-        dropzone.style.display = 'none';
       }
     });
-  </script></body>
+  </script>
+</body>
 </html>
