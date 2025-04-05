@@ -1,137 +1,124 @@
-e.target.id<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Xenith Protocol</title>
-<style>
-  body {
-    margin: 0;
-    font-family: 'Courier New', monospace;
-    background: #0e0e0e;
-    color: #e0e0e0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    overflow: hidden;
-    text-align: center;
-  }
-
-  .glyph-link {
-    position: absolute;
-    top: 0.5rem;
-    left: 0.5rem;
-    font-size: 1.2rem;
-    color: #7dfcb5;
-    text-decoration: none;
-    opacity: 0.3;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-  }
-
-  .glyph-link:hover {
-    opacity: 1;
-    transform: scale(1.1);
-  }
-
-  h1 {
-    font-size: 2.2rem;
-    font-weight: bold;
-    margin: 0.5rem 0;
-  }
-
-  .subtitle {
-    color: #999;
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .links a {
-    margin: 0 1rem;
-    color: #73defe;
-    text-decoration: none;
-    font-size: 1rem;
-  }
-
-  .links a:hover {
-    text-shadow: 0 0 5px #73defe;
-  }
-
-  @media (max-width: 600px) {
-    h1 {
-      font-size: 1.5rem;
-    }
-    .links a {
-      margin: 0 0.5rem;
-      font-size: 0.9rem;
-    }
-  }
-</style>
-</head>
-<body>
-
-  <a href="ritual.html" class="glyph-link">∇Ξ</a>
-
-  <h1>Welcome to <strong>Xenith Protocol</strong></h1>
-  <p class="subtitle">Systems, Autonomy, Recursion.</p>
-
-  <div class="links">
-    <a href="https://github.com/BoredSiel">GitHub</a>
-    <a href="mailto:si.el.melo1@gmail.com">Email</a>
-    <a href="https://github.com/BoredSiel/Xenith-protocol">Project Repo</a>
-  </div>
-<!DOCTYPE html><html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Xenith Protocol - Initiation</title>
   <style>
     body {
-      background-color: #0e0e0e;
-      color: #d0d0d0;
+      margin: 0;
+      padding: 0;
+      background: #0e0e0e;
+      color: #e0e0e0;
       font-family: 'Courier New', monospace;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
-      margin: 0;
-    }
-    .glyph {
-      font-size: 2rem;
-      padding: 10px;
-      margin: 10px;
-      cursor: grab;
-    }
-    #dropzone {
-      margin-top: 20px;
-      width: 200px;
-      height: 100px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #73defe;
-    }
-    #secret {
-      display: none;
-      margin-top: 30px;
-      background: #111;
-      padding: 15px;
-      border-left: 4px solid #73defe;
-    }
+      text-align: center;
+    }.glyph-link {
+  position: absolute;
+  top: 0.8rem;
+  left: 1rem;
+  font-size: 0.8rem;
+  color: #444;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.glyph-link:hover {
+  color: #73defe;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0.4rem;
+}
+
+p.subtitle {
+  font-size: 1rem;
+  color: #888;
+  margin-bottom: 2rem;
+}
+
+.links a {
+  margin: 0 1rem;
+  color: #73defe;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.links {
+  margin-top: auto;
+  padding-bottom: 2rem;
+}
+
+.glyph {
+  font-size: 1.2rem;
+  margin: 0.5rem;
+  cursor: grab;
+  user-select: none;
+  display: inline-block;
+  color: #73defe;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.glyph:hover {
+  transform: scale(1.2);
+  opacity: 0.8;
+}
+
+#dropzone {
+  margin-top: 2rem;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: #73defe;
+  transition: color 0.3s ease;
+}
+
+#secret {
+  display: none;
+  margin-top: 2rem;
+  color: #c9f76f;
+  font-style: italic;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.4rem;
+  }
+
+  .links a {
+    font-size: 0.9rem;
+  }
+
+  .glyph-link {
+    font-size: 0.7rem;
+  }
+
+  .glyph {
+    font-size: 1rem;
+  }
+}
+
   </style>
 </head>
-<body>
-  <div class="glyph" draggable="true" id="glyph1">Ξ</div>
-  <div class="glyph" draggable="true" id="glyph2">Δ/Σ</div>
-  <div class="glyph" draggable="true" id="glyph3">◇</div>  <div id="dropzone">Assemble the anomaly</div>  <div id="secret">
-    <h2>Access Granted</h2>
-    <p>You’ve uncovered the recursive path. Now you may begin reading <strong>Hermetic Structures</strong> and <strong>Symbolic Recursions</strong>.</p>
-    <a href="/ritual.html" style="color: #73defe;">Proceed to Ritual</a>
+<body><a href="ritual.html" class="glyph-link">∇Ξ</a>
+
+  <h1>Welcome to <strong>Xenith Protocol</strong></h1>
+  <p class="subtitle">Systems, Autonomy, Recursion.</p>  <div>
+    <div class="glyph" draggable="true" id="glyph1">Ξ</div>
+    <div class="glyph" draggable="true" id="glyph2">Δ/Σ</div>
+    <div class="glyph" draggable="true" id="glyph3">◇</div>
+  </div>  <div id="dropzone">assemble the anomaly</div>  <div id="secret">
+    Ritual successful. <a href="ritual.html" style="color: #73defe;">Enter the Initiation ⌁</a>
+  </div>  <div class="links">
+    <a href="https://github.com/BoredSiel">GitHub</a>
+    <a href="mailto:si.el.melo1@gmail.com">Email</a>
+    <a href="https://github.com/BoredSiel/Xenith-protocol">Project Repo</a>
   </div>  <script>
-    let dropzone = document.getElementById('dropzone');
-    let secret = document.getElementById('secret');
+    const dropzone = document.getElementById('dropzone');
+    const secret = document.getElementById('secret');
     let draggedGlyphs = [];
 
     document.querySelectorAll('.glyph').forEach(el => {
@@ -150,9 +137,8 @@ e.target.id<!DOCTYPE html>
       if (!draggedGlyphs.includes(id)) draggedGlyphs.push(id);
       if (draggedGlyphs.includes('glyph1') && draggedGlyphs.includes('glyph2') && draggedGlyphs.includes('glyph3')) {
         secret.style.display = 'block';
+        dropzone.style.display = 'none';
       }
     });
   </script></body>
-</html>
-</body>
 </html>
