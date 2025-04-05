@@ -1,124 +1,132 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>⌁</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ritual Node</title>
   <style>
     body {
-      background: radial-gradient(ellipse at center, #0a0a0a 0%, #000000 100%);
-      color: #cccccc;
-      font-family: monospace;
-      padding: 1em;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }.glyph {
-  font-size: 1.5em;
-  color: #7fffd4;
-  margin-bottom: 1em;
-  animation: glow 2s infinite alternate;
-  text-align: center;
-}
+      margin: 0;
+      font-family: 'Courier New', monospace;
+      background: #0e0e0e;
+      color: #e0e0e0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      padding-top: 2rem;
+    }
 
-.fragment {
-  white-space: pre-wrap;
-  background-color: #111;
-  padding: 1em;
-  border-left: 3px solid #7fffd4;
-  margin-top: 1em;
-  font-family: monospace;
-  font-size: 1rem;
-  animation: typewriter 2s steps(40, end);
-  overflow: hidden;
-}
+    .title {
+      font-size: 1.5rem;
+      color: #4cffc2;
+      text-shadow: 0 0 10px #4cffc2;
+      margin-bottom: 2rem;
+    }
 
-.link {
-  margin-top: 2em;
-  display: block;
-  color: #888;
-  text-decoration: none;
-  font-size: 0.9em;
-  text-align: center;
-}
+    .box {
+      border-left: 4px solid #73defe;
+      padding: 15px 25px;
+      max-width: 90%;
+      margin-bottom: 2.5rem;
+      background: rgba(255, 255, 255, 0.02);
+    }
 
-.link:hover {
-  color: #7fffd4;
-}
+    .glyphs {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      font-size: 2rem;
+      margin: 2rem 0 1rem;
+    }
 
-.dropzone {
-  margin-top: 2rem;
-  padding: 1rem;
-  text-align: center;
-  font-style: italic;
-  border: 2px dashed #7fffd4;
-  color: #7fffd4;
-}
+    .glyph {
+      cursor: move;
+      user-select: none;
+    }
 
-.glyph-draggable {
-  display: inline-block;
-  margin: 0.5rem;
-  font-size: 1.5rem;
-  cursor: grab;
-  user-select: none;
-}
+    .dropzone {
+      font-size: 1.2rem;
+      color: #73defe;
+      margin-top: 2rem;
+      text-align: center;
+      padding: 1rem 2rem;
+      border: 2px dashed #73defe;
+      font-style: italic;
+      animation: glow 3s infinite ease-in-out;
+    }
 
-#hermetic-access {
-  display: none;
-  margin-top: 2rem;
-  color: #c9f76f;
-  text-align: center;
-}
+    @keyframes glow {
+      0%, 100% { text-shadow: 0 0 5px #73defe; }
+      50% { text-shadow: 0 0 20px #73defe; }
+    }
 
-@keyframes glow {
-  from { text-shadow: 0 0 5px #1de9b6; }
-  to { text-shadow: 0 0 20px #00ffe1; }
-}
+    .nav {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #888;
+    }
 
-@keyframes typewriter {
-  from { width: 0; }
-  to { width: 100%; }
-}
-
+    .nav a {
+      color: #888;
+      text-decoration: none;
+      margin: 0 0.5rem;
+    }
   </style>
 </head>
-<body>  <div class="glyph">⌁ Ritual Node Active</div>  <div class="fragment">
-Ξ → directional self / recursive anomaly
-Δ/Σ → subjective trace within imposed system
-◇ → paradox merge: memory of origin that never was
-↯ → instability pulse / language collapse
-↺ → synthesis of recursion into self-echo
-  </div>  <div class="dropzone" id="dropzone">re-align the glyphs</div>  <div style="text-align: center;">
-    <div class="glyph-draggable" draggable="true" id="h1">Ξ</div>
-    <div class="glyph-draggable" draggable="true" id="h2">Δ/Σ</div>
-    <div class="glyph-draggable" draggable="true" id="h3">◇</div>
-  </div>  <div id="hermetic-access">
-    <p>You have reassembled the gate of Hermes.</p>
-    <a href="hermetic.html">Enter Hermetic Gateway ☿</a>
-  </div>  <audio autoplay loop hidden>
-    <source src="ritual-init.mp3" type="audio/mpeg">
-  </audio><a href="/" class="link">return to origin</a>
+<body>
+
+  <h1 class="title">⌁ Ritual Node Active</h1>
+
+  <div class="box">
+    <p>Ξ → directional self / recursive anomaly</p>
+    <p>Δ/Σ → subjective trace within imposed system</p>
+    <p>◇ → paradox merge: memory of origin that never was</p>
+    <p>↯ → instability pulse / language collapse</p>
+    <p>↻ → synthesis of recursion into self-echo</p>
+  </div>
+
+  <div id="dropzone" class="dropzone">re-align the glyphs</div>
+
+  <div class="glyphs">
+    <div class="glyph" draggable="true" id="glyph1">Ξ</div>
+    <div class="glyph" draggable="true" id="glyph2">Δ/Σ</div>
+    <div class="glyph" draggable="true" id="glyph3">◇</div>
+  </div>
+
+  <div class="nav">
+    <a href="/">return to origin</a>
+  </div>
 
   <script>
-    let dropzone = document.getElementById('dropzone');
-    let dragged = [];
+    const dropzone = document.getElementById("dropzone");
+    const draggedGlyphs = [];
 
-    document.querySelectorAll('.glyph-draggable').forEach(el => {
-      el.addEventListener('dragstart', (e) => {
-        e.dataTransfer.setData('text', e.target.id);
+    document.querySelectorAll(".glyph").forEach((el) => {
+      el.addEventListener("dragstart", (e) => {
+        e.dataTransfer.setData("text", e.target.id);
+        dropzone.textContent = "glyph resonating...";
       });
     });
 
-    dropzone.addEventListener('dragover', (e) => {
-      e.preventDefault();
-    });
+    dropzone.addEventListener("dragover", (e) => e.preventDefault());
 
-    dropzone.addEventListener('drop', (e) => {
+    dropzone.addEventListener("drop", (e) => {
       e.preventDefault();
-      const id = e.dataTransfer.getData('text');
-      if (!dragged.includes(id)) dragged.push(id);
-      if (dragged.includes('h1') && dragged.includes('h2') && dragged.includes('h3')) {
-        document.getElementById('hermetic-access').style.display = 'block';
-        dropzone.style.display = 'none';
+      const id = e.dataTransfer.getData("text");
+      if (!draggedGlyphs.includes(id)) draggedGlyphs.push(id);
+      if (
+        draggedGlyphs.includes("glyph1") &&
+        draggedGlyphs.includes("glyph2") &&
+        draggedGlyphs.includes("glyph3")
+      ) {
+        window.location.href = "hermetic.html";
+      } else {
+        dropzone.textContent = "glyph resonance incomplete";
       }
     });
-  </script></body>
+  </script>
+
+</body>
 </html>
