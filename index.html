@@ -6,108 +6,109 @@
   <style>
     body {
       margin: 0;
+      font-family: 'Courier New', monospace;
       background: #0e0e0e;
       color: #e0e0e0;
-      font-family: 'Courier New', monospace;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       height: 100vh;
+      overflow: hidden;
     }h1 {
-  margin-bottom: 0.5rem;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-weight: normal;
+  font-size: 1.2rem;
+  color: #999;
+  margin-bottom: 2rem;
+}
+
+.glyphs {
+  display: flex;
+  gap: 2rem;
+  font-size: 2rem;
+  margin-bottom: 2rem;
 }
 
 .glyph {
-  font-size: 2rem;
-  margin: 0 1rem;
   cursor: grab;
 }
 
-.glyph-container {
-  display: flex;
-  justify-content: center;
-  margin: 1rem;
-}
-
-#dropzone {
+.dropzone {
   font-size: 1.2rem;
+  padding: 0.75rem 1.5rem;
   color: #73defe;
-  margin: 2rem;
-  padding: 0.5rem 1rem;
-  transition: all 0.3s ease;
-  text-shadow: 0 0 2px #73defe;
+  animation: glow 2s infinite alternate;
 }
 
-.fuel-1 {
-  text-shadow: 0 0 5px #73defe, 0 0 10px #73defe;
-}
-
-.fuel-2 {
-  text-shadow: 0 0 10px #73defe, 0 0 20px #73defe;
-}
-
-.fuel-3 {
-  text-shadow: 0 0 15px #73defe, 0 0 30px #73defe;
-  color: #ffffff;
-  animation: pulse 0.5s infinite alternate;
-}
-
-@keyframes pulse {
-  from { text-shadow: 0 0 15px #73defe, 0 0 30px #73defe; }
-  to { text-shadow: 0 0 25px #ffffff, 0 0 40px #ffffff; }
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #73defe, 0 0 10px #73defe;
+  }
+  to {
+    text-shadow: 0 0 10px #73defe, 0 0 20px #73defe;
+  }
 }
 
 #secret {
   display: none;
   margin-top: 2rem;
+  font-size: 1rem;
+  text-align: center;
 }
 
-a {
+.nav-links {
+  margin-top: 2.5rem;
+  display: flex;
+  gap: 2rem;
+  font-size: 1.1rem;
+}
+
+.nav-links a {
   color: #73defe;
   text-decoration: none;
-  margin: 0 0.5rem;
 }
 
   </style>
 </head>
-<body>  <h1>Welcome to <strong>Xenith Protocol</strong></h1>
-  <p>Systems, Autonomy, Recursion.</p>  <div class="glyph-container">
-    <div class="glyph" id="glyph1" draggable="true">Ξ</div>
-    <div class="glyph" id="glyph2" draggable="true">Δ/Σ</div>
-    <div class="glyph" id="glyph3" draggable="true">◇</div>
-  </div>  <div id="dropzone">assemble the anomaly</div>  <div id="secret">
+<body>
+  <h1>Welcome to <strong>Xenith Protocol</strong></h1>
+  <h2>Systems, Autonomy, Recursion.</h2>  <div class="glyphs">
+    <div class="glyph" draggable="true" id="glyph1">Ξ</div>
+    <div class="glyph" draggable="true" id="glyph2">Δ/Σ</div>
+    <div class="glyph" draggable="true" id="glyph3">◇</div>
+  </div>  <div class="dropzone" id="dropzone">assemble the anomaly</div>  <div id="secret">
     <p>You’ve uncovered the recursive ignition. <a href="ritual.html">Proceed to Ritual</a></p>
+  </div>  <div class="nav-links">
+    <a href="https://github.com/BoredSiel">GitHub</a>
+    <a href="mailto:si.el.melo1@gmail.com">Email</a>
+    <a href="https://github.com/BoredSiel/xenith-protocol">Project Repo</a>
   </div>  <script>
+    const dropzone = document.getElementById('dropzone');
+    const secret = document.getElementById('secret');
     let draggedGlyphs = [];
 
-    document.querySelectorAll('.glyph').forEach(el => {
-      el.addEventListener('dragstart', (e) => {
-        e.dataTransfer.setData('text', e.target.id);
+    document.querySelectorAll('.glyph').forEach(e => {
+      e.addEventListener('dragstart', (ev) => {
+        ev.dataTransfer.setData('text', ev.target.id);
       });
     });
 
-    const dropzone = document.getElementById("dropzone");
-    const secret = document.getElementById("secret");
-
-    dropzone.addEventListener('dragover', (e) => {
-      e.preventDefault();
+    dropzone.addEventListener('dragover', (ev) => {
+      ev.preventDefault();
     });
 
-    dropzone.addEventListener('drop', (e) => {
-      e.preventDefault();
-      const id = e.dataTransfer.getData('text');
-      if (!draggedGlyphs.includes(id)) {
-        draggedGlyphs.push(id);
-      }
-
-      dropzone.classList.remove("fuel-1", "fuel-2", "fuel-3");
-      if (draggedGlyphs.length === 1) dropzone.classList.add("fuel-1");
-      if (draggedGlyphs.length === 2) dropzone.classList.add("fuel-2");
-      if (draggedGlyphs.length === 3) dropzone.classList.add("fuel-3");
-
+    dropzone.addEventListener('drop', (ev) => {
+      ev.preventDefault();
+      const id = ev.dataTransfer.getData('text');
+      if (!draggedGlyphs.includes(id)) draggedGlyphs.push(id);
       if (draggedGlyphs.includes('glyph1') && draggedGlyphs.includes('glyph2') && draggedGlyphs.includes('glyph3')) {
-        secret.style.display = "block";
+        secret.style.display = 'block';
       }
     });
   </script></body>
